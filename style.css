@@ -11,7 +11,7 @@ html, body {
 
     font-family: Neon, Arial, Helvetica, sans-serif;
     font-size: 20px;
-    background: #202020;
+    background: url('gfx/bg.png'), #202020;
     color: #CCC;
 
     -webkit-user-select: none;  /* Chrome all / Safari all */
@@ -57,7 +57,7 @@ div.small-weather-time {
     height: 100px;
     width: 100px;
     margin: 5px;
-    border: 1px solid #333;
+    border: 2px solid #333;
     background: #252525;
 
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -71,6 +71,12 @@ div.small-weather-time {
 
 .favs a:hover {
     background: #2A2A2A;
+    transform: scale(1.05);
+}
+
+.favs a:active {
+    background: #2A2A2A;
+    transform: scale(0.95);
 }
 
 .favs a img {
@@ -83,7 +89,7 @@ div.small-weather-time {
     width: 350px;
     height: 300px;
     margin: 5px;
-    border: 1px solid #333;
+    border: 2px solid #333;
     background: #252525;
     text-align: center;
     padding: 0 0 40px 0;
@@ -115,6 +121,12 @@ div.small-weather-time {
 
 .tool-list a:hover {
     color: #EC6E4C;
+    transform: scale(1.05);
+}
+
+.tool-list a:active {
+    color: #FFFFFF;
+    transform: scale(0.95);
 }
 
 /* Scroll bar Style =========================================*/
