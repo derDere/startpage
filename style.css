@@ -1,0 +1,173 @@
+@font-face {
+    font-family: "Neon";
+    src: url('gfx/Neon.ttf');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+
+    font-family: Neon, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background: url('gfx/bg.png'), #202020;
+    color: #CCC;
+
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */  
+}
+
+img#main-weather-img {
+    border: 0;
+    width: 100px;
+    height: 100px;
+}
+
+img.weather-img-small {
+    border: 0;
+    width: 35px;
+    height: 35px;
+}
+
+div.small-weather-time {
+    font-size: 14px;
+}
+
+#current-weather {
+    font-size: 22px;
+}
+
+#clock {
+    font-size: 130px;
+}
+
+#date {
+    font-size: 50px;
+}
+
+.favs {
+    width: 480px;
+}
+
+.favs a {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+    border: 2px solid #333;
+    background: #252525;
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.favs a:hover {
+    background: #2A2A2A;
+    transform: scale(1.05);
+}
+
+.favs a:active {
+    background: #2A2A2A;
+    transform: scale(0.95);
+}
+
+.favs a img {
+    height: 16px;
+    width: 16px;
+    margin: 42px;
+}
+
+.tool-list {
+    width: 350px;
+    height: 300px;
+    margin: 5px;
+    border: 2px solid #333;
+    background: #252525;
+    text-align: center;
+    padding: 0 0 40px 0;
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.tool-list img {
+    height: 16px;
+    width: 16px;
+    margin: 30px;
+    border: 0;
+}
+
+.tool-list a {
+    display: block;
+    text-decoration: none;
+    color: #a2c0ce;
+    font-weight: bold;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.tool-list a:hover {
+    color: #EC6E4C;
+    transform: scale(1.05);
+}
+
+.tool-list a:active {
+    color: #FFFFFF;
+    transform: scale(0.95);
+}
+
+/* Scroll bar Style =========================================*/
+body,
+div {
+  scrollbar-color: #7C7C7D #282829;
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar,
+div::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+body::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track
+{
+	background-color: #282829;
+}
+body::-webkit-scrollbar,
+div::-webkit-scrollbar
+{
+	background-color: #7C7C7D;
+}
+body::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb
+{
+	background-color: #7C7C7D;
+	border: 1px solid #282829;
+}
+    body::-webkit-scrollbar-thumb:hover,
+    div::-webkit-scrollbar-thumb:hover
+    {
+	    background-color: #69696A;
+	    border: 1px solid #282829;
+    }
+    body::-webkit-scrollbar-thumb:active,
+    div::-webkit-scrollbar-thumb:active
+    {
+	    background-color: #474749;
+	    border: 1px solid #282829;
+    }
+/* Scroll bar Style END =========================================*/
