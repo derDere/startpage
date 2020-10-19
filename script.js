@@ -1,6 +1,19 @@
 const excludeParts = 'minutely,daily,alerts';
 const months = ['Jan','Feb','Mar','Apr','Mai','Jun','Jul','Aug','Sep','Oct','Nov','Dez'];
 
+window.addEventListener("wheel", event => {
+    var page = document.getElementById('page1');
+    if (event.deltaY < 0) {
+        if (page.classList.contains('page-out')) {
+            page.classList.remove('page-out');
+            page.classList.add('page-in');
+        }
+    } else {
+        page.classList.remove('page-in');
+        page.classList.add('page-out');
+    }
+});
+
 function pageLoaded() {
 
     let [ lat, lon ] = document.getLocation();
@@ -9,12 +22,19 @@ function pageLoaded() {
 
     let favoritesDiv = document.getElementById('favorits-container');
     for(let fav of contentData.favorites) {
+        let urlMatches = fav.url.match(/^(https?:\/\/)([\w.]+)(\/)/gis);
         let a = document.createElement('a');
         a.title = fav.title;
         a.href = fav.url;
         let img = document.createElement('img');
         img.alt = fav.alt;
-        img.src = `gfx/icons/${fav.icon}`;
+        if (fav.icon) {
+            img.src = `gfx/icons/${fav.icon}`;
+        } else if (urlMatches.length > 0) {
+            img.src = `${urlMatches[0]}favicon.ico`;
+        } else {
+            img.src = 'gfx/link.svg';
+        }
         a.appendChild(img);
         favoritesDiv.appendChild(a);
     }
@@ -35,6 +55,25 @@ function pageLoaded() {
         booksDiv.appendChild(a);
     }
 
+    let moreDiv = document.getElementById('page2');
+    for(let [url, title, icon] of contentData.more) {
+        if (!title) title = url;
+
+        let a = document.createElement('a');
+        a.href = url;
+        a.className = 'more';
+
+        let img = document.createElement('img');
+        img.src = icon?`gfx/icons/${icon}`:'gfx/link.svg';
+        a.appendChild(img);
+        
+        let text = document.createElement('span');
+        text.innerText = title;
+        a.appendChild(text);
+
+        moreDiv.appendChild(a);
+    }
+
     var UpdateDateTime = () => {
         let clockEle = document.getElementById('clock');
         let dateEle = document.getElementById('date');
@@ -52,7 +91,7 @@ function pageLoaded() {
     UpdateDateTime();
     setInterval(UpdateDateTime, 1000);
 
-    axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}`).then(
+    axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}&units=metric`).then(
         r => {
             { // Set Current
                 let {icon, description} = r.data.current.weather[0];
@@ -60,7 +99,7 @@ function pageLoaded() {
                 let img = document.getElementById('main-weather-img');
                 let text = document.getElementById('current-weather');
                 img.src = imgUrl;
-                text.innerText = description;
+                text.innerText = description + ' ' + Math.round(r.data.current.temp,0) + '°';
             }
 
             { // Set Hours
@@ -77,18 +116,23 @@ function pageLoaded() {
                     
                     let img = document.createElement('img');
                     img.alt = '';
-                    img.title = description;
+                    img.title = ((time.getHours()<10)?('0'+time.getHours()):time.getHours()) + ':00 ' + description + ' ' + Math.round(itm.temp,0) + '°';
                     img.className = 'weather-img-small';
                     img.src = imgUrl;
     
-                    let text2 = document.createElement('div');
-                    text2.className = "small-weather-time";
-                    text2.innerText = (time.getHours()<10)?('0'+time.getHours()):time.getHours();
+                    //let text2 = document.createElement('div');
+                    //text2.className = "small-weather-time";
+                    //text2.innerText = (time.getHours()<10)?('0'+time.getHours()):time.getHours();
+    
+                    let text3 = document.createElement('div');
+                    text3.className = "small-weather-time";
+                    text3.innerHTML = Math.round(itm.temp,0) + '&deg;';
     
                     let td = document.createElement("td");
                     td.align="center";
                     td.appendChild(img);
-                    td.appendChild(text2);
+                    td.appendChild(text3);
+                    //td.appendChild(text2);
     
                     tableRow.appendChild(td);
                 }

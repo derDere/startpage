@@ -11,13 +11,57 @@ html, body {
 
     font-family: Neon, Arial, Helvetica, sans-serif;
     font-size: 20px;
-    background: url('gfx/bg.png'), #202020;
     color: #CCC;
+    background: #161616;
 
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;          /* Likely future */  
+}
+
+#page1, #page2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+#page1 {
+    z-index: 1000;
+    background: url('gfx/bg.png'), #202020;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+@keyframes pageSlideOut {
+    from { top: 0%; }
+    to { top: -100%; }
+}
+
+@keyframes pageSlideIn {
+    from { top: -100%; }
+    to { top: 0%; }
+}
+
+.page-out {
+    animation: pageSlideOut 0.75s forwards;
+}
+
+.page-in {
+    animation: pageSlideIn 0.75s forwards;
+}
+
+#page2 {
+    padding: 5px;
+    z-index: 1;
+    background: url('gfx/bg2.png'), #161616;
 }
 
 img#main-weather-img {
@@ -127,6 +171,53 @@ div.small-weather-time {
 .tool-list a:active {
     color: #FFFFFF;
     transform: scale(0.95);
+}
+
+a.more {
+    display: inline-block;
+    text-decoration: none;
+    color: #a2c0ce;
+    font-weight: bold;
+    margin: 5px;
+    font-size: 16px;
+    line-height: 16px;
+    width: 200px;
+    height: 16px;
+    text-align: center;
+    background: #252525;
+    padding: 17px;
+    border: 2px solid #333;
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+a.more:hover {
+    color: #EC6E4C;
+    border: 2px solid #422f2a;
+}
+
+a.more:active {
+    color: #FFFFFF;
+    transform: scale(0.95);
+}
+
+a.more img {
+    width: 16px;
+    height: 16px;
+    border: none;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+a.more span {
+    height: 16px;
+    border: none;
+    vertical-align: middle;
 }
 
 /* Scroll bar Style =========================================*/
