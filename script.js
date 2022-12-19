@@ -56,23 +56,45 @@ function pageLoaded() {
     }
 
     let moreDiv = document.getElementById('page2');
+    let moreCount = 0;
+    const moreMax = 8 * 16;
     for(let [url, title, icon] of contentData.more) {
-        if (!title) title = url;
+        if (url.length <= 0) {
+            let span = document.createElement('span');
+            span.className = 'more title';
 
-        let a = document.createElement('a');
-        a.href = url;
-        a.className = 'more';
+            let text = document.createElement('span');
+            text.innerText = title;
+            span.appendChild(text);
 
-        let img = document.createElement('img');
-        img.src = icon?`gfx/icons/${icon}`:'gfx/link.svg';
-        a.appendChild(img);
-        
-        let text = document.createElement('span');
-        text.innerText = title;
-        a.appendChild(text);
+            moreDiv.appendChild(span);
 
-        moreDiv.appendChild(a);
+        } else {            
+            if (!title) title = url;
+
+            let a = document.createElement('a');
+            a.href = url;
+            a.className = 'more';
+
+            let img = document.createElement('img');
+            img.src = icon?`gfx/icons/${icon}`:'gfx/link.svg';
+            a.appendChild(img);
+            
+            let text = document.createElement('span');
+            text.innerText = title;
+            a.appendChild(text);
+
+            moreDiv.appendChild(a);
+        }
+
+        moreCount += 1;
+        if (moreCount == moreMax) break;
     }
+    /*for (let n = moreCount; n < moreMax; n++) {
+        let span = document.createElement('span');
+        span.className = 'more empty';
+        moreDiv.appendChild(span);
+    }//*/
 
     var UpdateDateTime = () => {
         let clockEle = document.getElementById('clock');
