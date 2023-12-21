@@ -90,11 +90,6 @@ function pageLoaded() {
         moreCount += 1;
         if (moreCount == moreMax) break;
     }
-    /*for (let n = moreCount; n < moreMax; n++) {
-        let span = document.createElement('span');
-        span.className = 'more empty';
-        moreDiv.appendChild(span);
-    }//*/
 
     var UpdateDateTime = () => {
         let clockEle = document.getElementById('clock');
@@ -125,7 +120,7 @@ function pageLoaded() {
             }
 
             { // Set Hours
-                let tableRow = document.getElementById('small-weather-row');
+                let smallWeatherRow = document.getElementById('small-weather-row');
                 for(let i = 1; i < 8; i++) {
                     let itm = r.data.hourly[i];
                     let time = new Date();
@@ -142,21 +137,16 @@ function pageLoaded() {
                     img.className = 'weather-img-small';
                     img.src = imgUrl;
     
-                    //let text2 = document.createElement('div');
-                    //text2.className = "small-weather-time";
-                    //text2.innerText = (time.getHours()<10)?('0'+time.getHours()):time.getHours();
-    
                     let text3 = document.createElement('div');
                     text3.className = "small-weather-time";
                     text3.innerHTML = Math.round(itm.temp,0) + '&deg;';
     
-                    let td = document.createElement("td");
-                    td.align="center";
-                    td.appendChild(img);
-                    td.appendChild(text3);
-                    //td.appendChild(text2);
+                    let hourItm = document.createElement("div");
+                    hourItm.className = "weather-hourly-item";
+                    hourItm.appendChild(img);
+                    hourItm.appendChild(text3);
     
-                    tableRow.appendChild(td);
+                    smallWeatherRow.appendChild(hourItm);
                 }
             }
         }

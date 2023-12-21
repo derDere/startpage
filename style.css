@@ -20,6 +20,11 @@ html, body {
     user-select: none;          /* Likely future */  
 }
 
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 #page1, #page2 {
     position: fixed;
     top: 0;
@@ -69,6 +74,23 @@ html, body {
     overflow-x: visible;
 }
 
+.large-content-cell {
+	text-align: center;
+	align: center;
+	padding: 80px 0 150px 0;
+}
+
+.large-content-cell table {
+	margin: 0 auto;
+}
+
+table.weather-table {
+	margin-top: 11px;
+}
+table.weather-table td {
+	padding: 0;
+}
+
 img#main-weather-img {
     border: 0;
     width: 100px;
@@ -83,6 +105,12 @@ img.weather-img-small {
 
 div.small-weather-time {
     font-size: 14px;
+}
+
+.weather-hourly-item {
+	display: inline-block;
+	text-align: center;
+	width: 42px;
 }
 
 #current-weather {
