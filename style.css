@@ -226,6 +226,7 @@ span.more.empty {
     border-radius: 7px;
 }
 
+span.more.empty,
 span.more.title {
     display: inline-block;
     text-decoration: none;
@@ -240,6 +241,10 @@ span.more.title {
     padding: 31px 17px 3px 17px;
     border: 2px solid transparent;
     border-bottom: 2px solid #946f45;
+}
+
+span.more.empty {
+    border-bottom: 0 none;
 }
 
 a.more {
