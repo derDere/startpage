@@ -21,7 +21,7 @@ document['getContentData'] = () => ({
         ['askubuntu', 'https://askubuntu.com/'],
         ['ArchWiki', 'https://wiki.archlinux.org/']
     ],
-		more: [
+    more: [
         ['', 'Example Title'],
 				['', 'Search Engines'],
         ['https://google.com/', 'Google'],
