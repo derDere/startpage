@@ -59,20 +59,20 @@ function pageLoaded() {
     let moreCount = 0;
     const moreMax = 8 * 16;
     for(let [url, title, icon] of contentData.more) {
-				if ((!url && !title && !icon) || (typeof url == 'number')) {
-						let count = 1;
-						if (typeof url == 'number') {
-							count = url;
-						}
-						if (count <= 0) {
-							count = 1;
-						}
-						for(let i = 0; i < count; i++) {
-							let span = document.createElement('span');
-							span.className = 'more empty';
-							moreDiv.appendChild(span);
-						}
-				}
+        if ((!url && !title && !icon) || (typeof url == 'number')) {
+            let count = 1;
+            if (typeof url == 'number') {
+                count = url;
+            }
+            if (count <= 0) {
+                count = 1;
+            }
+            for(let i = 0; i < count; i++) {
+                let span = document.createElement('span');
+                span.className = 'more empty';
+                moreDiv.appendChild(span);
+            }
+        }
         else if (url.length <= 0) {
             let span = document.createElement('span');
             span.className = 'more title';
