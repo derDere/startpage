@@ -122,7 +122,10 @@ function pageLoaded() {
     UpdateDateTime();
     setInterval(UpdateDateTime, 1000);
 
-    axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}&units=metric`).then(
+    //let owapi_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}&units=metric`;
+    let owapi_url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}&units=metric`;
+
+    axios.get(owapi_url).then(
         r => {
             { // Set Current
                 let {icon, description} = r.data.current.weather[0];
