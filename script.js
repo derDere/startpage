@@ -56,6 +56,59 @@ function pageLoaded() {
     }
 
     let moreDiv = document.getElementById('page2');
+    let moreCols = contentData.more.map[0]?.length | 0;
+
+    console.log('moreCols: ' + moreCols);
+
+    for(let i = 0; i < moreCols; i++) {
+        let colDiv = document.createElement('div');
+        colDiv.className = 'more-col';
+        colDiv.innterText = 'I: ' + i;
+        moreDiv.appendChild(colDiv);
+
+        for(let y = 0; y < contentData.more.map.length; y++) {
+            let key = (contentData.more.map[y][i]) + '';
+            key = key.trim();
+            if (key == '0') {
+                let span = document.createElement('span');
+                span.className = 'more empty';
+                colDiv.appendChild(span);
+            }
+            else if (key in contentData.more.links) {
+                let [url, title, icon] = contentData.more.links[key];
+
+                if (url.length <= 0) {
+                    let span = document.createElement('span');
+                    span.className = 'more title';
+
+                    let text = document.createElement('span');
+                    text.innerText = title;
+                    span.appendChild(text);
+
+                    colDiv.appendChild(span);
+
+                } else {            
+                    if (!title) title = url;
+
+                    let a = document.createElement('a');
+                    a.href = url;
+                    a.className = 'more';
+
+                    let img = document.createElement('img');
+                    img.src = icon?`gfx/icons/${icon}`:'gfx/link.svg';
+                    a.appendChild(img);
+                    
+                    let text = document.createElement('span');
+                    text.innerText = title;
+                    a.appendChild(text);
+
+                    colDiv.appendChild(a);
+                }
+            }
+        }
+    }
+
+    /*
     let moreCount = 0;
     const moreMax = 8 * 16;
     for(let [url, title, icon] of contentData.more) {
@@ -103,7 +156,7 @@ function pageLoaded() {
 
         moreCount += 1;
         if (moreCount == moreMax) break;
-    }
+    }*/
 
     var UpdateDateTime = () => {
         let clockEle = document.getElementById('clock');
@@ -125,6 +178,7 @@ function pageLoaded() {
     //let owapi_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}&units=metric`;
     let owapi_url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}&units=metric`;
 
+    /*
     axios.get(owapi_url).then(
         r => {
             { // Set Current
@@ -168,5 +222,6 @@ function pageLoaded() {
             }
         }
     );
+    */
 
 }

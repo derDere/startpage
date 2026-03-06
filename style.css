@@ -67,12 +67,22 @@ table {
     padding: 5px;
     z-index: 1;
     background: url('gfx/bg2.png'), #161616;
+    width: 100%;
 
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
     overflow-x: visible;
+}
+
+#page2 .more-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
 }
 
 .large-content-cell {
@@ -245,7 +255,7 @@ span.more.title {
 }
 
 span.more.empty {
-    border-bottom: 0 none;
+    border: 0 none;
 }
 
 a.more {
