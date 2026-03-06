@@ -21,14 +21,37 @@ document['getContentData'] = () => ({
         ['askubuntu', 'https://askubuntu.com/'],
         ['ArchWiki', 'https://wiki.archlinux.org/']
     ],
-    more: [
+    old_more: [
         ['', 'Example Title'],
-				['', 'Search Engines'],
+		['', 'Search Engines'],
         ['https://google.com/', 'Google'],
         ['', 'One empty space'],
         [],
         ['', 'Three empty spaces'],
         [3],
         ['https://example.org/', 'Just a link']
-    ]
+    ],
+    more: {
+        links: {
+            "1": ['', 'Example Title'],
+		    "2": ['', 'Search Engines'],
+            "3": ['https://google.com/', 'Google'],
+            "b": ['https://bing.com/', 'Bing'],
+            "4": ['', 'One empty space'],
+            "0": [],
+            "5": ['', 'Three empty spaces'],
+            "0": [3],
+            "6": ['https://example.org/', 'Just a link']
+        },
+        map: [
+            [ "1",  "2", "0"],
+            [ "4",  "3", "0"],
+            [ "0",  "b", "0"],
+            [ "5",  "0", "0"],
+            [ "0",  "0", "0"],
+            [ "0",  "0", "0"],
+            [ "0",  "0", "0"],
+            [ "6",  "0", "6"],
+        ]
+    }
 });

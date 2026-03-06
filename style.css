@@ -255,7 +255,7 @@ span.more.title {
 }
 
 span.more.empty {
-    border: 0 none;
+    border: 2px dotted transparent;
 }
 
 a.more {
