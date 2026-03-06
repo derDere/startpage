@@ -71,7 +71,7 @@ table {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
+    align-content: space-around;
     overflow-x: visible;
 }
 
