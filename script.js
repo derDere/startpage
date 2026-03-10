@@ -222,4 +222,47 @@ function pageLoaded() {
         console.error('Forecast API error:', err);
     });
 
+    var commandInput = document.getElementById('cmd-input');
+
+    commandInput.addEventListener('keydown', event => {
+        console.log('Key pressed: ' + event.key);
+        if (event.key === 'Enter') {
+            console.log('Enter key detected, processing command: ' + commandInput.value);
+            let value = commandInput.value.trim();
+            let commands = document.getCommands();
+            let matched = false;
+            for(let pattern in commands) {
+                let regex = new RegExp(pattern, 'im');
+                console.log('Trying pattern: ' + pattern + ' against value: ' + value);
+                let match = value.match(regex);
+                console.log('Match result: ' + match);
+                if (match) {
+                    commands[pattern](match);
+                    matched = true;
+                    break;
+                }
+            }
+            if (matched) {
+                commandInput.value = '';
+            }
+        }
+    });
+
+    var searchInput = document.getElementById('search-input');
+
+    searchInput.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            let value = searchInput.value.trim();
+            if (value.length > 0) {
+                let searchUrl = document.getSearchEngine(value);
+                window.location = searchUrl;
+            }
+        }
+    });
+
+    // Auto focus command input
+    setTimeout(() => {
+        commandInput.value = '';
+        commandInput.focus();
+    }, 100);
 }

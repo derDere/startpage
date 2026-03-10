@@ -4,6 +4,14 @@
 document['getApiKey'] = () => ('Your api key here');
 document['getLocation'] = () => ([1.0000000, 1.0000000]);
 document['getUserName'] = () => ('Your name');
+document['getSearchEngine'] = (search) => `https://www.google.com/search?q=${search}`; // The search parameter will already be url encoded when passed to this function.
+document['getCommands'] = () => ({
+    /* The string will be trimmed before the match! */
+    /* The match will NOT be casesensitive! */
+    /* The first matching command will be executed! */
+    '^alert:(.+)': (match) => alert(match[1]),
+    '^open:(.+)': (match) => window.open(match[1], '_blank'),
+});
 document['getContentData'] = () => ({
     favorites: [ // Try using a number of 8 favorites or somthing else dividable by 4.
         {

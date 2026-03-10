@@ -88,7 +88,13 @@ table {
 .large-content-cell {
 	text-align: center;
 	align: center;
-	padding: 80px 0 150px 0;
+	padding: 0px 0 150px 0;
+}
+
+.cmd-td {
+    padding: 0;
+	text-align: center;
+	align: center;
 }
 
 .large-content-cell table {
@@ -303,6 +309,38 @@ a.more span {
     height: 16px;
     border: none;
     vertical-align: middle;
+}
+
+input.cmd {
+    font-family: Neon, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 100px;
+    height: 30px;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: 0 none;
+    background: transparent;
+    color: #a2c0ce;
+    text-align: center;
+
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+
+    /* remove browser style on focus */
+    outline: none;
+}
+
+/* input.cmd set placeholder to transparent on focus*/
+input.cmd:focus {
+    /*border-bottom: 2px solid #333;*/
+}
+input.cmd::placeholder {
+    color: #333;
+}
+input.cmd:focus::placeholder {
+    color: transparent;
 }
 
 /* Scroll bar Style =========================================*/
