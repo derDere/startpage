@@ -1,4 +1,3 @@
-const excludeParts = 'minutely,daily,alerts';
 const months = ['Jan','Feb','Mar','Apr','Mai','Jun','Jul','Aug','Sep','Oct','Nov','Dez'];
 
 window.addEventListener("wheel", event => {
@@ -175,53 +174,52 @@ function pageLoaded() {
     UpdateDateTime();
     setInterval(UpdateDateTime, 1000);
 
-    //let owapi_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}&units=metric`;
-    let owapi_url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParts}&appid=${apiKey}&units=metric`;
+    let currentUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&cnt=8`;
 
-    /*
-    axios.get(owapi_url).then(
-        r => {
-            { // Set Current
-                let {icon, description} = r.data.current.weather[0];
-                let imgUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-                let img = document.getElementById('main-weather-img');
-                let text = document.getElementById('current-weather');
-                img.src = imgUrl;
-                text.innerText = description + ' ' + Math.round(r.data.current.temp,0) + '°';
-            }
+    // Set Current Weather
+    axios.get(currentUrl).then(r => {
+        let {icon, description} = r.data.weather[0];
+        let imgUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+        let img = document.getElementById('main-weather-img');
+        let text = document.getElementById('current-weather');
+        img.src = imgUrl;
+        text.innerText = description + ' ' + Math.round(r.data.main.temp) + '°';
+    }).catch(err => {
+        console.error('Current weather API error:', err);
+        let text = document.getElementById('current-weather');
+        text.innerText = 'Weather unavailable';
+    });
 
-            { // Set Hours
-                let smallWeatherRow = document.getElementById('small-weather-row');
-                for(let i = 1; i < 8; i++) {
-                    let itm = r.data.hourly[i];
-                    let time = new Date();
-                    let timeHours = time.getHours();
-                    timeHours += i;
-                    time.setHours(timeHours);
-    
-                    let {icon, description} = itm.weather[0];
-                    let imgUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-                    
-                    let img = document.createElement('img');
-                    img.alt = '';
-                    img.title = ((time.getHours()<10)?('0'+time.getHours()):time.getHours()) + ':00 ' + description + ' ' + Math.round(itm.temp,0) + '°';
-                    img.className = 'weather-img-small';
-                    img.src = imgUrl;
-    
-                    let text3 = document.createElement('div');
-                    text3.className = "small-weather-time";
-                    text3.innerHTML = Math.round(itm.temp,0) + '&deg;';
-    
-                    let hourItm = document.createElement("div");
-                    hourItm.className = "weather-hourly-item";
-                    hourItm.appendChild(img);
-                    hourItm.appendChild(text3);
-    
-                    smallWeatherRow.appendChild(hourItm);
-                }
-            }
+    // Set Forecast (3-hour intervals)
+    axios.get(forecastUrl).then(r => {
+        let smallWeatherRow = document.getElementById('small-weather-row');
+        for(let i = 0; i < r.data.list.length; i++) {
+            let itm = r.data.list[i];
+            let time = new Date(itm.dt * 1000);
+
+            let {icon, description} = itm.weather[0];
+            let imgUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+
+            let img = document.createElement('img');
+            img.alt = '';
+            img.title = ((time.getHours()<10)?('0'+time.getHours()):time.getHours()) + ':00 ' + description + ' ' + Math.round(itm.main.temp) + '°';
+            img.className = 'weather-img-small';
+            img.src = imgUrl;
+
+            let text3 = document.createElement('div');
+            text3.className = "small-weather-time";
+            text3.innerHTML = Math.round(itm.main.temp) + '&deg;';
+
+            let hourItm = document.createElement("div");
+            hourItm.className = "weather-hourly-item";
+            hourItm.appendChild(img);
+            hourItm.appendChild(text3);
+
+            smallWeatherRow.appendChild(hourItm);
         }
-    );
-    */
+    }).catch(err => {
+        console.error('Forecast API error:', err);
+    });
 
 }
