@@ -1,3 +1,6 @@
 # Ignore private Informations
 store.js
 gfx/icons/
+
+# Temp Files
+.temp/
