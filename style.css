@@ -354,6 +354,221 @@ input.cmd:focus::placeholder {
     color: transparent;
 }
 
+/* Tab-Titel und -Icon oben links, Settings-Knopf unten rechts: klein und unauffällig */
+#tab-identity {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+/* Drei schlichte Kästchen gleicher Höhe: Icon, Farbe, Titel */
+#tab-icon-button,
+#tab-color-button,
+#tab-title-input {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 24px;
+    margin: 0 2px 0 0;
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+#tab-icon-button:hover,
+#tab-color-button:hover,
+#tab-title-input:hover,
+#tab-title-input:focus {
+    border-color: #4a4a4a;
+}
+
+#tab-icon-button {
+    width: 24px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#tab-color-button {
+    position: relative;
+    width: 24px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+/* Paletten-Icon in der gewählten Farbe (inline gesetzt) */
+#tab-color-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    mask: url('gfx/palette.svg') center / contain no-repeat;
+}
+
+/* "Keine Farbe": dezentes graues X über der Palette bzw. der Vorgabe */
+#tab-color-button.unset::after,
+#color-swatches .no-color::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background:
+        linear-gradient(to top right, transparent calc(50% - 0.75px), #a0a0a0 calc(50% - 0.75px), #a0a0a0 calc(50% + 0.75px), transparent calc(50% + 0.75px)),
+        linear-gradient(to bottom right, transparent calc(50% - 0.75px), #a0a0a0 calc(50% - 0.75px), #a0a0a0 calc(50% + 0.75px), transparent calc(50% + 0.75px));
+}
+
+#color-swatches .no-color {
+    position: relative;
+    background: #141414;
+}
+
+#tab-title-input {
+    width: 160px;
+    padding: 0 6px;
+    font-family: Neon, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #a2c0ce;
+    outline: none;
+}
+
+#settings-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+#settings-button:hover {
+    opacity: 0.8;
+}
+
+/* Dropdowns unter den Kästchen: Icon-Galerie und Farbwähler */
+.tab-dropdown {
+    position: absolute;
+    top: 28px;
+    padding: 4px;
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.tab-dropdown[hidden] {
+    display: none;
+}
+
+#tab-icon-picker {
+    left: 0;
+    grid-template-columns: repeat(8, 26px);
+}
+
+#tab-icon-picker:not([hidden]) {
+    display: grid;
+}
+
+#tab-icon-picker span {
+    padding: 5px;
+    border-radius: 3px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+#tab-icon-picker span:hover {
+    background: #2a2a2a;
+}
+
+#tab-icon-picker img {
+    width: 16px;
+    height: 16px;
+}
+
+#tab-color-picker {
+    left: 26px;
+    width: 168px;
+    padding: 6px;
+}
+
+#color-sv {
+    position: relative;
+    height: 100px;
+    border-radius: 2px;
+    background-image: linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, transparent);
+    cursor: crosshair;
+    touch-action: none;
+}
+
+#color-sv-cursor {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    margin: -6px 0 0 -6px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px #000;
+    pointer-events: none;
+}
+
+#color-hue {
+    position: relative;
+    height: 10px;
+    margin-top: 6px;
+    border-radius: 2px;
+    background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+    cursor: pointer;
+    touch-action: none;
+}
+
+#color-hue-cursor {
+    position: absolute;
+    top: -2px;
+    width: 4px;
+    height: 12px;
+    margin-left: -3px;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px #000;
+    pointer-events: none;
+}
+
+#color-swatches {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+    margin-top: 6px;
+}
+
+#color-swatches span {
+    height: 20px;
+    border: 1px solid #2a2a2a;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+#color-swatches span:hover {
+    border-color: #4a4a4a;
+}
+
+#color-hex {
+    box-sizing: border-box;
+    width: 100%;
+    height: 22px;
+    margin-top: 6px;
+    padding: 0 6px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    color: #a2c0ce;
+    background: #0e0e0e;
+    border: 1px solid #2a2a2a;
+    border-radius: 3px;
+    outline: none;
+}
+
+#color-hex:focus {
+    border-color: #4a4a4a;
+}
+
 /* Fehler-Overlay für fehlerhafte Commands */
 #error-overlay {
     position: fixed;

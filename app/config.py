@@ -19,7 +19,19 @@ else:
 
 CONFIG_FILE = DATA_DIR / "config.json"
 ICON_DIR = DATA_DIR / "gfx" / "icons"
+BUNDLED_ICON_DIR = WEB_DIR / "gfx" / "icons"
 EXAMPLE_CONFIG_FILE = WEB_DIR / "example_config.json"
+
+
+def install_bundled_icons() -> None:
+    """Kopiert die in der Exe mitgelieferten Icons in den Icon-Ordner, ohne vorhandene zu überschreiben."""
+    if BUNDLED_ICON_DIR == ICON_DIR:
+        return
+    ICON_DIR.mkdir(parents=True, exist_ok=True)
+    for icon in BUNDLED_ICON_DIR.glob("*"):
+        target = ICON_DIR / icon.name
+        if not target.exists():
+            shutil.copy(icon, target)
 
 
 def load_config() -> dict:

@@ -535,6 +535,11 @@ class SettingsWindow(QTabWidget):
             spin_box.valueChanged.connect(lambda value, key=key: self.set_general(key, value))
             form.addRow(label, spin_box)
 
+        new_tab_box = QCheckBox()
+        new_tab_box.setChecked(general.get("open_in_new_tab", False))
+        new_tab_box.toggled.connect(lambda checked: self.set_general("open_in_new_tab", checked))
+        form.addRow("Open links in new tab", new_tab_box)
+
         port_box = QSpinBox()
         port_box.setRange(1, 65535)
         port_box.setValue(general["port"])

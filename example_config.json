@@ -5,6 +5,7 @@
         "latitude": 52.52,
         "longitude": 13.405,
         "search_engine": "https://www.google.com/search?q=%s",
+        "open_in_new_tab": false,
         "port": 9123,
         "autostart": false
     },
