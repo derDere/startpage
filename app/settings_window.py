@@ -113,7 +113,7 @@ class IconPicker(QToolButton):
         icon_files = sorted(path for path in ICON_DIR.glob("*") if path.is_file())
         for path in icon_files:
             item = QListWidgetItem(QIcon(str(path)), "")
-            item.setToolTip(path.name)
+            item.setToolTip(path.stem)
             item.setData(Qt.ItemDataRole.UserRole, path.name)
             self.gallery.addItem(item)
         rows = min(max(math.ceil(len(icon_files) / GALLERY_COLUMNS), 1), 8)

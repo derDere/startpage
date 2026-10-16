@@ -245,7 +245,7 @@ function toggleIconPicker() {
         // Der leere Eintrag steht für das Standard-Favicon; alle Einträge zeigen die gewählte Farbe.
         for (let icon of ['', ...icons]) {
             let item = document.createElement('span');
-            item.title = icon || 'default';
+            item.title = icon ? icon.replace(/\.[^.]+$/, '') : 'default';
             let img = document.createElement('img');
             setIcon(img, icon ? `gfx/icons/${icon}` : 'gfx/favicon.png', tabColor() || HOUSE_COLOR);
             item.appendChild(img);
