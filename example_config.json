@@ -1,0 +1,124 @@
+{
+    "general": {
+        "user_name": "Demo",
+        "api_key": "",
+        "latitude": 52.52,
+        "longitude": 13.405,
+        "search_engine": "https://www.google.com/search?q=%s",
+        "port": 9123,
+        "autostart": false
+    },
+    "favorites": [
+        {"title": "DuckDuckGo", "url": "https://duckduckgo.com/", "icon": "duckduckgo.svg", "color": "#de5833"},
+        {"title": "GitHub", "url": "https://github.com/", "icon": "github.svg", "color": "#a371f7"},
+        {"title": "Stack Overflow", "url": "https://stackoverflow.com/", "icon": "stackoverflow.svg", "color": "#f48024"},
+        {"title": "MDN Web Docs", "url": "https://developer.mozilla.org/", "icon": "mdn.svg", "color": "#5e9eff"},
+        {"title": "Wikipedia", "url": "https://www.wikipedia.org/", "icon": "wiki.png", "color": "#eaecf0"},
+        {"title": "YouTube", "url": "https://www.youtube.com/", "icon": "youtube.svg", "color": "#ff0033"},
+        {"title": "regex101", "url": "https://regex101.com/", "icon": "regex101.svg", "color": "#4fb3ff"},
+        {"title": "Hacker News", "url": "https://news.ycombinator.com/", "icon": "hackernews.svg", "color": "#ff6600"},
+        null,
+        null,
+        null,
+        null
+    ],
+    "tools": [
+        {"title": "regex 101", "url": "https://regex101.com/"},
+        {"title": "jsfiddle", "url": "https://jsfiddle.net/"},
+        {"title": "CodePen", "url": "https://codepen.io/"},
+        {"title": "CyberChef", "url": "https://gchq.github.io/CyberChef/"},
+        {"title": "crontab guru", "url": "https://crontab.guru/"},
+        {"title": "jwt.io", "url": "https://jwt.io/"},
+        {"title": "Excalidraw", "url": "https://excalidraw.com/"},
+        {"title": "DeepL", "url": "https://www.deepl.com/translator"},
+        null,
+        null
+    ],
+    "books": [
+        {"title": "MDN Web Docs", "url": "https://developer.mozilla.org/"},
+        {"title": "ArchWiki", "url": "https://wiki.archlinux.org/"},
+        {"title": "Ask Ubuntu", "url": "https://askubuntu.com/"},
+        {"title": "Python Docs", "url": "https://docs.python.org/3/"},
+        {"title": "The Rust Book", "url": "https://doc.rust-lang.org/book/"},
+        {"title": "Pro Git", "url": "https://git-scm.com/book/en/v2"},
+        null,
+        null,
+        null,
+        null
+    ],
+    "more": {
+        "links": {
+            "1": {"title": "Search", "url": "", "icon": null, "color": null},
+            "2": {"title": "Google", "url": "https://www.google.com/", "icon": null, "color": null},
+            "3": {"title": "DuckDuckGo", "url": "https://duckduckgo.com/", "icon": null, "color": null},
+            "4": {"title": "Bing", "url": "https://www.bing.com/", "icon": null, "color": null},
+            "5": {"title": "Startpage", "url": "https://www.startpage.com/", "icon": null, "color": null},
+            "6": {"title": "Maps", "url": "", "icon": null, "color": null},
+            "7": {"title": "OpenStreetMap", "url": "https://www.openstreetmap.org/", "icon": null, "color": null},
+            "8": {"title": "Google Maps", "url": "https://maps.google.com/", "icon": null, "color": null},
+            "10": {"title": "Development", "url": "", "icon": null, "color": null},
+            "11": {"title": "GitHub", "url": "https://github.com/", "icon": null, "color": "#a2c0ce"},
+            "12": {"title": "GitLab", "url": "https://gitlab.com/", "icon": null, "color": null},
+            "13": {"title": "Stack Overflow", "url": "https://stackoverflow.com/", "icon": null, "color": null},
+            "14": {"title": "npm", "url": "https://www.npmjs.com/", "icon": null, "color": null},
+            "15": {"title": "PyPI", "url": "https://pypi.org/", "icon": null, "color": null},
+            "16": {"title": "Docs", "url": "", "icon": null, "color": null},
+            "17": {"title": "MDN Web Docs", "url": "https://developer.mozilla.org/", "icon": null, "color": null},
+            "18": {"title": "DevDocs", "url": "https://devdocs.io/", "icon": null, "color": null},
+            "20": {"title": "News", "url": "", "icon": null, "color": null},
+            "21": {"title": "Hacker News", "url": "https://news.ycombinator.com/", "icon": null, "color": "#ec6e4c"},
+            "22": {"title": "heise online", "url": "https://www.heise.de/", "icon": null, "color": null},
+            "23": {"title": "Ars Technica", "url": "https://arstechnica.com/", "icon": null, "color": null},
+            "24": {"title": "The Verge", "url": "https://www.theverge.com/", "icon": null, "color": null},
+            "25": {"title": "Fun", "url": "", "icon": null, "color": null},
+            "26": {"title": "xkcd", "url": "https://xkcd.com/", "icon": null, "color": "#d39043"},
+            "27": {"title": "Random Wikipedia", "url": "https://en.wikipedia.org/wiki/Special:Random", "icon": null, "color": null},
+            "30": {"title": "Tools", "url": "", "icon": null, "color": null},
+            "31": {"title": "Can I use", "url": "https://caniuse.com/", "icon": null, "color": null},
+            "32": {"title": "CyberChef", "url": "https://gchq.github.io/CyberChef/", "icon": null, "color": null},
+            "33": {"title": "crontab guru", "url": "https://crontab.guru/", "icon": null, "color": null},
+            "34": {"title": "Excalidraw", "url": "https://excalidraw.com/", "icon": null, "color": null}
+        },
+        "map": [
+            ["1", "0", "10", "0", "20", "0", "30"],
+            ["2", "0", "11", "0", "21", "0", "31"],
+            ["3", "0", "12", "0", "22", "0", "32"],
+            ["4", "0", "13", "0", "23", "0", "33"],
+            ["5", "0", "14", "0", "24", "0", "34"],
+            ["0", "0", "15", "0", "0", "0", "0"],
+            ["6", "0", "0", "0", "25", "0", "0"],
+            ["7", "0", "16", "0", "26", "0", "0"],
+            ["8", "0", "17", "0", "27", "0", "0"],
+            ["0", "0", "18", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0", "0"]
+        ]
+    },
+    "commands": [
+        {
+            "pattern": "^:(\\d+)",
+            "code": "// \":8080\" öffnet http://localhost:8080\nwindow.location = `http://localhost:${match[1]}`;"
+        },
+        {
+            "pattern": "^=(.+)",
+            "code": "// \"=6*7\" rechnet und schreibt das Ergebnis zurück in die Eingabe\nlet cmdInput = document.getElementById('cmd-input');\ntry {\n    let result = eval(match[1]);\n    setTimeout(() => {\n        cmdInput.value = result;\n    }, 10);\n} catch (e) {\n    alert('Invalid expression');\n}"
+        },
+        {
+            "pattern": "^yt:(.+)",
+            "code": "// \"yt:lofi\" sucht auf YouTube\nwindow.location = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(match[1]);"
+        },
+        {
+            "pattern": "^w:(.+)",
+            "code": "// \"w:Aachen\" sucht in der Wikipedia\nwindow.location = 'https://en.wikipedia.org/w/index.php?search=' + encodeURIComponent(match[1]);"
+        },
+        {
+            "pattern": "^gh:(.+)",
+            "code": "// \"gh:python/cpython\" öffnet ein GitHub-Repository\nwindow.location = `https://github.com/${match[1]}`;"
+        },
+        {
+            "pattern": "^open:(.+)",
+            "code": "// \"open:https://example.org\" öffnet die URL in einem neuen Tab\nwindow.open(match[1], '_blank');"
+        }
+    ]
+}

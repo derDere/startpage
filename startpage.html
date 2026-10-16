@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="gfx/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="style.css">
         
-        <script src="store.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body onload="pageLoaded();">
@@ -71,7 +70,13 @@
                     </tr>
                 </table>
 						
-            <!-- /CENTER --></td></tr></table>            
+            <!-- /CENTER --></td></tr></table>
+        </div>
+        <div id="error-overlay" hidden>
+            <div id="error-box">
+                <div id="error-title"></div>
+                <pre id="error-text"></pre>
+            </div>
         </div>
         <script src="script.js"></script>
     </body>

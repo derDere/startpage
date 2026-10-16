@@ -1,6 +1,48 @@
 # Ignore private Informations
 store.js
-gfx/icons/
+config.json
+config.tmp
+gfx/icons/*
+
+# Mitgelieferte Icons
+!gfx/icons/amazon.svg
+!gfx/icons/azuredevops.svg
+!gfx/icons/calendar.svg
+!gfx/icons/chat.svg
+!gfx/icons/chatgpt.svg
+!gfx/icons/claude.svg
+!gfx/icons/cloud.svg
+!gfx/icons/discord.svg
+!gfx/icons/duckduckgo.svg
+!gfx/icons/eye.png
+!gfx/icons/folder.svg
+!gfx/icons/github.svg
+!gfx/icons/gmail.svg
+!gfx/icons/hackernews.svg
+!gfx/icons/home.svg
+!gfx/icons/instagram.svg
+!gfx/icons/linkedin.svg
+!gfx/icons/mail.svg
+!gfx/icons/mdn.svg
+!gfx/icons/music.svg
+!gfx/icons/netflix.svg
+!gfx/icons/reddit.svg
+!gfx/icons/regex101.svg
+!gfx/icons/server.svg
+!gfx/icons/settings.svg
+!gfx/icons/spotify.svg
+!gfx/icons/stackoverflow.svg
+!gfx/icons/terminal.svg
+!gfx/icons/twitch.svg
+!gfx/icons/wiki.png
+!gfx/icons/x.svg
+!gfx/icons/youtube.svg
+
+# Python / Build
+.venv/
+__pycache__/
+build/
+dist/
 
 # Temp Files
 .temp/

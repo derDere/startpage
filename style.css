@@ -179,6 +179,17 @@ div.small-weather-time {
     margin: 42px;
 }
 
+.favs a.empty {
+    visibility: hidden;
+}
+
+/* Eingefärbtes Icon: das Bild ist die Maske, die Hintergrundfarbe (inline gesetzt) die Farbe */
+img.tinted {
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
 .tool-list {
     width: 350px;
     height: 300px;
@@ -341,6 +352,44 @@ input.cmd::placeholder {
 }
 input.cmd:focus::placeholder {
     color: transparent;
+}
+
+/* Fehler-Overlay für fehlerhafte Commands */
+#error-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+#error-overlay[hidden] {
+    display: none;
+}
+
+#error-box {
+    max-width: 80%;
+    padding: 30px 40px;
+    background: #181818;
+    border-top: 6px solid #e5484d;
+    border-radius: 7px;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+
+#error-title {
+    color: #ff5555;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#error-text {
+    margin: 0;
+    color: #f8c4c4;
+    font-family: Consolas, monospace;
+    font-size: 18px;
+    white-space: pre-wrap;
 }
 
 /* Scroll bar Style =========================================*/
